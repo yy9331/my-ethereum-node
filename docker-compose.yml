@@ -20,7 +20,7 @@ services:
       --http.port 8545
       --http.corsdomain "*"
       --http.vhosts "*"
-      --http.api "eth,net,web3,personal,debug"
+      --http.api "eth,net,web3,debug"
       --ws
       --ws.addr 0.0.0.0
       --ws.port 8546
@@ -29,12 +29,59 @@ services:
       --allow-insecure-unlock
       --rpc.allow-unprotected-txs
       --syncmode snap
-      --cache 4096
-      --maxpeers 50
+      --cache 8192
+      --maxpeers 100
       --verbosity 3
+      --gcmode archive
+      --txlookuplimit 0
       --metrics
       --metrics.addr 0.0.0.0
       --metrics.port 6060
+      --authrpc.addr 0.0.0.0
+      --authrpc.port 8551
+      --authrpc.vhosts "*"
+      --authrpc.jwtsecret /root/.ethereum/geth/jwtsecret
+    environment:
+      - PUID=1000
+      - PGID=1000
+    networks:
+      - ethereum-network
+    depends_on:
+      - beacon-client
+
+  beacon-client:
+    image: sigp/lighthouse:latest
+    container_name: ethereum-beacon-client
+    restart: unless-stopped
+    ports:
+      - "5052:5052"  # Beacon API
+      - "9000:9000"  # P2P
+      - "9000:9000/udp"  # P2P UDP
+    volumes:
+      - ./beacon-data:/root/.lighthouse
+      - ./data/geth/jwtsecret:/root/.lighthouse/jwtsecret:ro
+    command: >
+      lighthouse beacon_node
+      --network mainnet
+      --datadir /root/.lighthouse
+      --http
+      --http-address 0.0.0.0
+      --http-port 5052
+      --execution-jwt /root/.lighthouse/jwtsecret
+      --execution-endpoint http://ethereum-node:8551
+      --checkpoint-sync-url https://sync-mainnet.beaconcha.in
+      --disable-deposit-contract-sync
+      --disable-enr-auto-update
+      --port 9000
+      --discovery-port 9000
+      --target-peers 100
+      --max-skip-slots 10
+      --disable-optimistic-finalized-sync
+      --validator-monitor-auto
+      --http-allow-origin "*"
+      --metrics
+      --metrics-address 0.0.0.0
+      --metrics-port 5054
     environment:
       - PUID=1000
       - PGID=1000

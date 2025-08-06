@@ -1,5 +1,6 @@
 # 以太坊节点数据目录 / Ethereum node data directory
 data/
+beacon-data/
 logs/
 
 # Node.js 依赖 / Node.js dependencies
