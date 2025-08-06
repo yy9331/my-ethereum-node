@@ -1,0 +1,21 @@
+{
+  "name": "ethereum-node-test",
+  "version": "1.0.0",
+  "description": "以太坊节点测试工具",
+  "main": "test-node.js",
+  "scripts": {
+    "test": "node test-node.js",
+    "start": "node test-node.js"
+  },
+  "dependencies": {
+    "web3": "^1.10.0"
+  },
+  "keywords": [
+    "ethereum",
+    "node",
+    "rpc",
+    "web3"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+} 

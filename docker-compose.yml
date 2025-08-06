@@ -1,0 +1,63 @@
+version: '3.3'
+
+services:
+  ethereum-node:
+    image: ethereum/client-go:latest
+    container_name: ethereum-geth-node
+    restart: unless-stopped
+    ports:
+      - "8545:8545"  # HTTP RPC
+      - "8546:8546"  # WebSocket RPC
+      - "30303:30303"  # P2P
+      - "30303:30303/udp"  # P2P UDP
+    volumes:
+      - ./data:/root/.ethereum
+      - ./logs:/var/log/ethereum
+    command: >
+      --datadir /root/.ethereum
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8545
+      --http.corsdomain "*"
+      --http.vhosts "*"
+      --http.api "eth,net,web3,personal,debug"
+      --ws
+      --ws.addr 0.0.0.0
+      --ws.port 8546
+      --ws.origins "*"
+      --ws.api "eth,net,web3"
+      --allow-insecure-unlock
+      --rpc.allow-unprotected-txs
+      --syncmode snap
+      --cache 4096
+      --maxpeers 50
+      --verbosity 3
+      --metrics
+      --metrics.addr 0.0.0.0
+      --metrics.port 6060
+    environment:
+      - PUID=1000
+      - PGID=1000
+    networks:
+      - ethereum-network
+
+  # 可选：添加一个轻量级的 API 网关
+  api-gateway:
+    image: nginx:alpine
+    container_name: ethereum-api-gateway
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - ethereum-node
+    networks:
+      - ethereum-network
+
+networks:
+  ethereum-network:
+    driver: bridge
+
+volumes:
+  ethereum-data: 

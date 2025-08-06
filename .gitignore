@@ -1,0 +1,103 @@
+# 以太坊节点数据目录
+data/
+logs/
+
+# Node.js 依赖
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 日志文件
+*.log
+logs/
+*.out
+
+# 临时文件
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE 和编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Docker 相关
+.dockerignore
+docker-compose.override.yml
+
+# 备份文件
+*.backup
+*.bak
+*.old
+*.orig
+
+# 配置文件备份
+config.js.backup*
+subgraph.yaml.backup*
+
+# 测试覆盖率报告
+coverage/
+.nyc_output/
+
+# 构建输出
+dist/
+build/
+out/
+
+# 缓存目录
+.cache/
+.parcel-cache/
+
+# 系统文件
+.fuse_hidden*
+.nfs*
+
+# 以太坊特定文件
+keystore/
+*.key
+*.pem
+*.p12
+*.pfx
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 压缩文件
+*.tar.gz
+*.zip
+*.rar
+
+# 监控和性能文件
+*.pid
+*.sock
+
+# 安全相关
+secrets/
+private/
+keys/
+
+# 文档生成
+docs/_build/
+
+# 临时脚本
+temp_*.sh
+temp_*.js
+
+# 本地配置文件
+local.config.js
+local.config.json 
