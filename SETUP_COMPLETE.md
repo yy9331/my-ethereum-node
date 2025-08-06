@@ -2,6 +2,12 @@
 
 恭喜！您的以太坊 RPC 节点已经成功部署并运行。
 
+<div align="center">
+
+[English](SETUP_COMPLETE_EN.md) | 简体中文
+
+</div>
+
 ## ✅ 部署状态
 
 - ✅ 以太坊节点已启动

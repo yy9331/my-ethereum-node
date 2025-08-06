@@ -2,6 +2,12 @@
 
 这是一个完整的以太坊 RPC 节点部署方案，使用 Docker 和 Geth 客户端。
 
+<div align="center">
+
+[English](README_EN.md) | 简体中文
+
+</div>
+
 ## 🚀 快速开始
 
 ### 1. 启动节点

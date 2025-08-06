@@ -1,103 +1,109 @@
-# 以太坊节点数据目录
+# 以太坊节点数据目录 / Ethereum node data directory
 data/
 logs/
 
-# Node.js 依赖
+# Node.js 依赖 / Node.js dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
 
-# 环境变量文件
+# 环境变量文件 / Environment variable files
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# 日志文件
+# 日志文件 / Log files
 *.log
 logs/
 *.out
 
-# 临时文件
+# 临时文件 / Temporary files
 *.tmp
 *.temp
 .DS_Store
 Thumbs.db
 
-# IDE 和编辑器文件
+# IDE 和编辑器文件 / IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Docker 相关
+# Docker 相关 / Docker related
 .dockerignore
 docker-compose.override.yml
 
-# 备份文件
+# 备份文件 / Backup files
 *.backup
 *.bak
 *.old
 *.orig
 
-# 配置文件备份
+# 配置文件备份 / Configuration file backups
 config.js.backup*
 subgraph.yaml.backup*
 
-# 测试覆盖率报告
+# 测试覆盖率报告 / Test coverage reports
 coverage/
 .nyc_output/
 
-# 构建输出
+# 构建输出 / Build output
 dist/
 build/
 out/
 
-# 缓存目录
+# 缓存目录 / Cache directories
 .cache/
 .parcel-cache/
 
-# 系统文件
+# 系统文件 / System files
 .fuse_hidden*
 .nfs*
 
-# 以太坊特定文件
+# 以太坊特定文件 / Ethereum specific files
 keystore/
 *.key
 *.pem
 *.p12
 *.pfx
 
-# 数据库文件
+# 数据库文件 / Database files
 *.db
 *.sqlite
 *.sqlite3
 
-# 压缩文件
+# 压缩文件 / Compressed files
 *.tar.gz
 *.zip
 *.rar
 
-# 监控和性能文件
+# 监控和性能文件 / Monitoring and performance files
 *.pid
 *.sock
 
-# 安全相关
+# 安全相关 / Security related
 secrets/
 private/
 keys/
 
-# 文档生成
+# 文档生成 / Documentation generation
 docs/_build/
 
-# 临时脚本
+# 临时脚本 / Temporary scripts
 temp_*.sh
 temp_*.js
 
-# 本地配置文件
+# 本地配置文件 / Local configuration files
 local.config.js
-local.config.json 
+local.config.json
+
+# 英文文档（可选保留）
+# README_EN.md
+# SETUP_COMPLETE_EN.md
+# config-examples_EN.js
+# test-node_EN.js 
